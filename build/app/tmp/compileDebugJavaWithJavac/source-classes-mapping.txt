@@ -1,4 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-azza/telecom/devs/com/example/azza_telecom_clientes/BuildConfig.java
- azza.telecom.devs.com.example.azza_telecom_clientes.BuildConfig
