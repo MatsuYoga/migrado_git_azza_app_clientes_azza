@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "136736292950",
+    "project_id": "azza-telecom",
+    "storage_bucket": "azza-telecom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136736292950:android:e7d18a3ee02ae9b8b43bf7",
+        "android_client_info": {
+          "package_name": "azza.telecom.devs.com.example.azza_telecom_clientes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136736292950-n5ihr05lv81p8t7gk4cgt0n05uhsaomg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKsYT7lgXWMegyMbupxq7QKZdPB8bJB3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136736292950-n5ihr05lv81p8t7gk4cgt0n05uhsaomg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
