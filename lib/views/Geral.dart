@@ -1,5 +1,6 @@
 import 'package:azza_telecom_clientes/views/MesAtual.dart';
 import 'package:azza_telecom_clientes/views/Historico.dart';
+import 'package:azza_telecom_clientes/views/Perfil.dart';
 import 'package:flutter/material.dart';
 
 class Geral extends StatefulWidget {
@@ -33,8 +34,7 @@ class _GeralState extends State<Geral> {
         children: [
           MesAtual(),
           Historico(),
-          Container(),
-
+          Perfil(),
         ],
       ),
 
