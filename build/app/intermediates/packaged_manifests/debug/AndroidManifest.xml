@@ -73,10 +73,10 @@
                 android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
-                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
-                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
+                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
@@ -140,6 +140,12 @@
             </intent-filter>
         </service>
 
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="azza.telecom.devs.com.example.azza_telecom_clientes.firebaseinitprovider"
+            android:directBootAware="true"
+            android:exported="false"
+            android:initOrder="100" />
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"
             android:authorities="azza.telecom.devs.com.example.azza_telecom_clientes.workmanager-init"
@@ -243,13 +249,6 @@
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <provider
-            android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="azza.telecom.devs.com.example.azza_telecom_clientes.firebaseinitprovider"
-            android:directBootAware="true"
-            android:exported="false"
-            android:initOrder="100" />
 
         <meta-data
             android:name="com.google.android.gms.version"
