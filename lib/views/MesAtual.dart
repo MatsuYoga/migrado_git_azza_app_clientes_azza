@@ -8,6 +8,8 @@ class MesAtual extends StatefulWidget {
   _MesAtualState createState() => _MesAtualState();
 }
 
+var codigoBarras = '83600000000.7967600481006125038691015.0019599799.54';
+
 class _MesAtualState extends State<MesAtual> {
   @override
   Widget build(BuildContext context) {
@@ -72,7 +74,7 @@ class _MesAtualState extends State<MesAtual> {
                       foregroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange),
                     ),
                     onPressed: () {
-                      final copiado = ClipboardData(text: 'codigo');
+                      final copiado = ClipboardData(text: '$codigoBarras');
                       Clipboard.setData(copiado);
                       final snackBar = SnackBar(
                         content: Text('Código de Barras Copiado!'),
@@ -84,7 +86,7 @@ class _MesAtualState extends State<MesAtual> {
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
                     child: Text(
-                      '83600000000.7967600481006125038691015.0019599799.54',
+                      '$codigoBarras',
                       //lembrar de alterar ao tocar, copiar para o clipboard o codigo
                     ),
                   ),
