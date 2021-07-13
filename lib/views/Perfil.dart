@@ -10,9 +10,15 @@ class Perfil extends StatefulWidget {
 }
 
 var url = 'https://firebasestorage.googleapis.com/v0/b/azza-telecom.appspot.com/o/3x4.jpeg?alt=media&token=026d8808-7df1-4488-8dba-487001337103';
-var nome = 'Jorge';
+var nomeSobrenome = 'Jorge Soares';
+var telefone = '+55 11 95370-2822';
+var email = 'jorgejunioalvessoares@hotmail.com';
+var endereco = 'Rua Bariri, 63, Vl. Ayrosa - Osasco - SP - 06280-100';
 
-TextEditingController _teste = TextEditingController(text:'$nome');
+TextEditingController _nomeSobrenome = TextEditingController(text:'$nomeSobrenome');
+TextEditingController _telefone = TextEditingController(text:'$telefone');
+TextEditingController _email = TextEditingController(text:'$email');
+TextEditingController _endereco = TextEditingController(text:'$endereco');
 
 class _PerfilState extends State<Perfil> {
   @override
@@ -42,14 +48,49 @@ class _PerfilState extends State<Perfil> {
                 ),
                 // img perfil
                 Padding(
-                    padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.only(bottom: 10, left: 10, right: 10),
                     child: Text(
-                      ''
+                      'Contrato N° 5564.5598.4455',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
                     ),
                 ),
-                InputPerfil(
-                    controller: _teste,
-                    hint: '')
+                Padding(
+                  padding: EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                  child: InputPerfil(
+                      controller: _nomeSobrenome,
+                      hint: ''),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                  child: InputPerfil(
+                      controller: _telefone,
+                      hint: ''
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                    child:InputPerfil(
+                        controller: _email,
+                        hint: ''
+                    ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(bottom: 10, left: 10, right: 10),
+                    child: InputPerfil(
+                        controller: _endereco,
+                        hint: ''
+                    ),
+                ),
+                ElevatedButton(
+                  onPressed: (){},
+                  child: Text('Salvar',
+                   style: TextStyle(
+                    fontSize: 20,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

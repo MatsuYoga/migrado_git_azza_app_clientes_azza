@@ -25,8 +25,18 @@ class _GeralState extends State<Geral> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Azza Telecom"),
-        backgroundColor: Color.fromRGBO(39, 52, 139, 1),
+        //title: new Image.asset('imagens/logo.png', fit: BoxFit.cover),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'imagens/logo.png',
+              fit: BoxFit.contain,
+              height: 28,
+            ),
+          ],
+        ),
+        backgroundColor: Colors.white
       ),
 
       body: PageView(
