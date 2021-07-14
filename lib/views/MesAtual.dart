@@ -52,7 +52,7 @@ class _MesAtualState extends State<MesAtual> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 60),
                   child: Text(
-                      'R\$ 150,00',
+                      'R\$ 149,00',
                       style: TextStyle(
                         fontSize: 20
                       ),
