@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:azza_telecom_clientes/models/Usuario.dart';
 import 'package:azza_telecom_clientes/views/inputCustomizado.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 
 class Login extends StatefulWidget {
 
@@ -39,10 +41,36 @@ class _LoginState extends State<Login> {
 
     FirebaseAuth auth = FirebaseAuth.instance;
 
-    auth.signInWithEmailAndPassword(
+     auth.signInWithEmailAndPassword(
         email: usuario.email,
         password: usuario.senha
     ).then((firebaseUser){
+
+
+       SizedBox(
+         width: 218,
+         child: TextButton(
+           style: ButtonStyle(
+             foregroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange),
+           ),
+           onPressed: () {
+             final login = ClipboardData(text: 'Bem Vindo');
+             Clipboard.setData(login);
+             final snackBar = SnackBar(
+               content: Text('Código de Barras Copiado!'),
+               action: SnackBarAction(
+                 label: '',
+                 onPressed: () {},
+               ),
+             );
+             ScaffoldMessenger.of(context).showSnackBar(snackBar);
+           },
+           child: Text(
+             'Bem Vindo',
+             //lembrar de alterar ao tocar, copiar para o clipboard o codigo
+           ),
+         ),
+       );
 
       Navigator.of(context).popAndPushNamed('Geral');
       
