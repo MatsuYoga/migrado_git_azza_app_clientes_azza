@@ -1,3 +1,4 @@
+import 'package:azza_telecom_clientes/views/Perfil.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -25,9 +26,9 @@ class _MesAtualState extends State<MesAtual> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 10),
                   child: Text(
-                    'Olá Fulano',
+                    'Olá $nomeSobrenome',
                     style: TextStyle(
-                      fontSize: 50,
+                      fontSize: 30,
                     ),
                   ),
                 ),
