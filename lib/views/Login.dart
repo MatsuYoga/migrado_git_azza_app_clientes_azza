@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:azza_telecom_clientes/models/Usuario.dart';
 import 'package:azza_telecom_clientes/views/inputCustomizado.dart';
@@ -46,33 +47,7 @@ class _LoginState extends State<Login> {
         password: usuario.senha
     ).then((firebaseUser){
 
-
-       SizedBox(
-         width: 218,
-         child: TextButton(
-           style: ButtonStyle(
-             foregroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange),
-           ),
-           onPressed: () {
-             final login = ClipboardData(text: 'Bem Vindo');
-             Clipboard.setData(login);
-             final snackBar = SnackBar(
-               content: Text('Código de Barras Copiado!'),
-               action: SnackBarAction(
-                 label: '',
-                 onPressed: () {},
-               ),
-             );
-             ScaffoldMessenger.of(context).showSnackBar(snackBar);
-           },
-           child: Text(
-             'Bem Vindo',
-             //lembrar de alterar ao tocar, copiar para o clipboard o codigo
-           ),
-         ),
-       );
-
-      Navigator.of(context).popAndPushNamed('Geral');
+      Navigator.of(context).popAndPushNamed('Home');
       
       }
     );
@@ -132,21 +107,29 @@ class _LoginState extends State<Login> {
                   height: 150,
                   ),
                 ),
-                InputCustomizado(
-                  controller: _controllerEmail,
-                  hint: "E-mail",
-                  autofocus: true,
-                  type: TextInputType.emailAddress
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: InputCustomizado(
+                      controller: _controllerEmail,
+                      hint: "E-mail",
+                      autofocus: true,
+                      type: TextInputType.emailAddress
+                  ),
                 ),
-                InputCustomizado(
-                  controller: _controllerSenha,
-                  hint: "Senha",
-                  obscure: true
+
+                Padding(
+                  padding: EdgeInsets.all(15),
+                  child: InputCustomizado(
+                      controller: _controllerSenha,
+                      hint: "Senha",
+                      obscure: true
+                  ),
                 ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Logar", style: TextStyle(color: Colors.white),),
+                    Text("Logar", style: TextStyle(color: Colors.white, fontSize: 20),),
                     Switch(
                       value: _cadastrar,
                       onChanged: (bool valor){
@@ -159,21 +142,35 @@ class _LoginState extends State<Login> {
                         });
                       },
                     ),
-                    Text("Cadastrar", style: TextStyle(color: Colors.white),),
+                    Text("Cadastrar", style: TextStyle(color: Colors.white, fontSize: 20),),
                   ],
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.deepOrange, onPrimary: Colors.white),
-                  child: Text(_textoBotao),
-                  onPressed: (){
-                    _validarCampos();
-                  },
+
+                Padding(
+                  padding: EdgeInsets.fromLTRB(100, 10, 100, 0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.deepOrange,
+                      onPrimary: Colors.white,
+                    ),
+
+                    child: Text(
+                      _textoBotao,
+                      style: TextStyle(
+                        fontSize: 20
+                      ),
+                    ),
+                    onPressed: (){
+                      _validarCampos();
+                    },
+                  ),
                 ),
+
                 Padding(
                   padding: EdgeInsets.only(top: 20),
                   child: Text(_mensagemErro,
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.red
                     ),

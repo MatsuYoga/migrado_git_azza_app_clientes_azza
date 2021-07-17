@@ -27,9 +27,10 @@ class InputCustomizado extends StatelessWidget {
       obscureText: this.obscure,
       autofocus: this.autofocus,
       keyboardType: this.type,
-      style: TextStyle(fontSize: 20, color: Colors.white),
+      style: TextStyle(fontSize: 25, color: Colors.black),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.fromLTRB(32, 15, 32, 16),
+        fillColor: Color.fromRGBO(225, 225, 225, 0.5),
+        contentPadding: EdgeInsets.fromLTRB(32, 10, 32, 16),
         hintText: this.hint,
         filled: true,
         border: OutlineInputBorder(

@@ -74,22 +74,22 @@ class _MesAtualState extends State<MesAtual> {
                     style: ButtonStyle(
                       foregroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange),
                     ),
-                    onPressed: () {
-                      final copiado = ClipboardData(text: '$codigoBarras');
-                      Clipboard.setData(copiado);
-                      final snackBar = SnackBar(
-                        content: Text('Código de Barras Copiado!'),
-                        action: SnackBarAction(
-                          label: 'Undo',
-                          onPressed: () {},
-                        ),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    },
-                    child: Text(
-                      '$codigoBarras',
-                      //lembrar de alterar ao tocar, copiar para o clipboard o codigo
-                    ),
+                  onPressed: () {
+                    final copiado = ClipboardData(text: '$codigoBarras');
+                    Clipboard.setData(copiado);
+                    final snackBar = SnackBar(
+                      content: Text('Código de Barras Copiado!'),
+                      action: SnackBarAction(
+                        label: 'Undo',
+                        onPressed: () {},
+                      ),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  },
+                  child: Text(
+                    '$codigoBarras',
+                    //lembrar de alterar ao tocar, copiar para o clipboard o codigo
+                  ),
                   ),
                 ),
                 Padding(

@@ -45,6 +45,7 @@ class _GeralState extends State<Geral> {
           MesAtual(),
           Historico(),
           Perfil(),
+
         ],
       ),
 
@@ -58,20 +59,22 @@ class _GeralState extends State<Geral> {
               pageViewController.jumpToPage(index);
             },
             items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+
+              ),
+              BottomNavigationBarItem(
+              icon: Icon(Icons.analytics),
               label: 'Mês Atual',
 
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.history),
+                label: 'Histórico',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.history),
-              label: 'Histórico',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Perfil',
-            ),
-          ],);
+          ],
+         );
         }
       ),
     );

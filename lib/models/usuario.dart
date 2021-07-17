@@ -43,5 +43,4 @@ class Usuario {
     _idUsuario = value;
   }
 
-
 }

@@ -1,8 +1,11 @@
-import 'package:azza_telecom_clientes/views/inputCustomizado.dart';
+import 'package:azza_telecom_clientes/views/Historico.dart';
+import 'package:azza_telecom_clientes/views/MesAtual.dart';
+import 'package:azza_telecom_clientes/views/Perfil.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:azza_telecom_clientes/models/usuario.dart';
+
+import 'Geral.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,125 +15,146 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
-  TextEditingController _controllerEmail = TextEditingController(text: "jorge@gmail.com");
-  TextEditingController _controllerSenha = TextEditingController(text: "1234");
-
-  bool _cadastrar = false;
-  String _mensagemErro = "";
-
-  _cadastrarUsuario(Usuario usuario){
-
-  }
-  _logarUsuario(Usuario usuario){
-
-  }
-
-  _validarCampos() {
-
-    //Recupera dados dos campos
-
-    String email = _controllerEmail.text;
-    String senha = _controllerSenha.text;
-
-    if (email.isNotEmpty && email.contains("@")){
-      if (senha.isNotEmpty && senha.length > 6){
-
-        //configura usuario
-        Usuario usuario = Usuario();
-        usuario.email = email;
-        usuario.senha = senha;
-
-
-
-        //cadastrar ou logar
-        if( _cadastrar ) {
-          //cadastrar
-          _cadastrarUsuario(usuario);
-        }else{
-          //logar
-          _logarUsuario(usuario);
-        }
-      }else {
-        setState((){
-          _mensagemErro = "Preencha a senha! Mínimo 6 caracteres";
-        });
-      }
-    }else {
-      setState(() {
-        _mensagemErro = "Preencha o E-mail válido";
-      });
-    }
-
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //definir se quer uma appbar ou não
-       /*appBar: AppBar(
-         title: Text(""),
-       ),*/
       body: Container(
-         color: Color.fromRGBO(39, 52, 139, 1),
-         padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+
                 Padding(
-                  padding: EdgeInsets.only(bottom: 32),
-                  child: Image.asset("imagens/azza_logo.png",
-                  width: 200,
-                  height: 150,
+                  padding: EdgeInsets.only(bottom: 30),
+                  child: Image.asset("imagens/logo.png",
+                    width: 350,
+                    height: 150,
                   ),
                 ),
-                InputCustomizado(
-                  controller: _controllerEmail,
-                  hint: "E-mail",
-                  autofocus: true,
-                  type: TextInputType.emailAddress
-                ),
-                InputCustomizado(
-                  controller: _controllerSenha,
-                  hint: "Senha",
-                  obscure: true
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Logar", style: TextStyle(color: Colors.white),),
-                    Switch(
-                      value: _cadastrar,
-                      onChanged: (bool valor){
-                        setState(() {
-                          _cadastrar = valor;
-                        });
-                      }
+
+                Padding(
+                  padding: EdgeInsets.only(bottom: 30),
+                  child: Text(
+                    'Como podemos te ajudar? ',
+                    style: TextStyle(
+                        fontSize: 25
                     ),
-                    Text("Cadastrar", style: TextStyle(color: Colors.white),),
+                  ),
+                ),
+
+                Row(
+                  children: <Widget>[
+
+                    Padding(
+                      padding: EdgeInsets.all(15),
+                      child: SizedBox.fromSize(
+                        size: Size(150, 150),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color.fromRGBO(39, 52, 139, 1),
+                          ),
+                          child: Text(
+                            'Mês Atual',
+                            style: TextStyle(
+                                fontSize: 25
+                            ),
+                          ),
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Geral()),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+
+                    Padding(
+                      padding: EdgeInsets.all(15),
+                      child: SizedBox.fromSize(
+                        size: Size(150, 150),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color.fromRGBO(39, 52, 139, 1),
+                          ),
+                          child: Text(
+                            ' Histórico\nFinanceiro',
+                            style: TextStyle(
+                                fontSize: 25
+                            ),
+                          ),
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Historico()),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+
                   ],
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.deepOrange, onPrimary: Colors.white),
-                  child: Text("Entrar"),
-                  onPressed: (){},
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Text(_mensagemErro,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.red
+
+                Row(
+                  children: <Widget>[
+
+                    Padding(
+                      padding: EdgeInsets.all(15),
+                      child: SizedBox.fromSize(
+                        size: Size(150, 150),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color.fromRGBO(39, 52, 139, 1),
+                          ),
+                          child: Text(
+                            'Perfil',
+                            style: TextStyle(
+                                fontSize: 25
+                            ),
+                          ),
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Perfil()),
+                            );
+                          },
+                        ),
+                      ),
                     ),
-                  ),
+
+                    Padding(
+                      padding: EdgeInsets.all(15),
+                      child: SizedBox.fromSize(
+                        size: Size(150, 150),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color.fromRGBO(39, 52, 139, 1),
+                          ),
+                          child: Text(
+                            'Sair',
+                            style: TextStyle(
+                                fontSize: 25
+                            ),
+                          ),
+                          onPressed: (){
+
+                          },
+                        ),
+                      ),
+                    ),
+
+                  ],
                 ),
+
               ],
+
             ),
-          )
-        )
+
+          ),
+        ),
       ),
     );
   }

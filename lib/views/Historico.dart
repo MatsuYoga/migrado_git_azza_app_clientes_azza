@@ -16,11 +16,18 @@ class _HistoricoState extends State<Historico> {
     var dados = [];
     var contador = 1;
     var valor = 150;
-    var status = '  Pago';
+    var status = '';
+    var baixar = '';
 
-    while (contador <= 12){
-      dados.add('10/$contador/2021 \n R\$$valor $status '
-          '                                     2° Via');
+    while (contador <= 24){
+      if (contador % 2 == 0){
+        baixar = '      2° Via     ';
+        status = '  A Pagar ';
+      }else{
+        baixar = 'Comprovante';
+        status = '    Pago   ';
+      };
+      dados.add('10/$contador/2021  $status | $baixar | R\$$valor');
       contador++;
     };
 
@@ -30,48 +37,21 @@ class _HistoricoState extends State<Historico> {
         title: Text('Histórico de Faturas'),
         backgroundColor: Colors.deepOrange.withOpacity(1),
       ),
-      body:
-        ListView.builder(
+      body: ListView.builder(
           itemCount: dados.length,
           itemBuilder: (context, index) {
           return ListTile(
             title: Text(
               '${dados[index]}',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 17.5),
             ),
             minVerticalPadding: 5,
-            onTap: (){},
+            onTap: (){
+              print("segunda Via");
+            },
           );
         },
-        ),
-
-
-      /*Container(
-      padding: EdgeInsets.all(10),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: 10,left: 10),
-                  child: Text(
-                      '01/01/2021'
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Text(
-                      'R\$ 150,00    Pago'
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),*/
-
-
+      ),
     );
   }
 }
